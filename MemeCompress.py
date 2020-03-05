@@ -49,7 +49,7 @@ def FindMemeFormat(Img, DBFilePath, MemeFormatSize=(256, 256, 3)):
 # Driver Code
 
 # Parameters
-imgPath = 'MemeImages/TomJerry_Text_1.jpeg'
+imgPath = 'MemeImages/Drake_Text_2.png'
 DBFilePath = 'PathDB.p'
 
 # Read img and find meme format
