@@ -66,3 +66,8 @@ def SortNormCorrVals(ImagePaths, NormCorrVals):
                 NormCorrVals_c[j], NormCorrVals_c[j+1] = NormCorrVals_c[j+1], NormCorrVals_c[j]
                 ImagePaths_c[j], ImagePaths_c[j+1] = ImagePaths_c[j+1], ImagePaths_c[j]
     return ImagePaths_c, NormCorrVals_c
+
+def ceil(v):
+    if v - int(v) > 0:
+        return v + 1
+    return v
