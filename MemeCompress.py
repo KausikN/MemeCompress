@@ -65,7 +65,7 @@ def FindMemeFormat(Img, DBFormatPath, MemeFormatSize=(256, 256, 3), progressBar=
 
     return cv2.imread(ImagePaths[MaxCorrIndex]), ImagePaths, NormCorrVals
 
-def ClassifyMemes2Formats(DBImagePath='MemeImgsDB.p', DBFormatPath='PathDB.p', SavePath='MemeClassifications'):
+def ClassifyMemes2Formats(DBImagePath='MemeImgsDB.p', DBFormatPath='PathDB.p', SavePath='MemeClassifications', nMatches=5, nCols = 5):
     if os.path.exists(DBImagePath):
         Images = pickle.load(open(DBImagePath, 'rb'))
         for imgp in tqdm(Images):
@@ -73,7 +73,7 @@ def ClassifyMemes2Formats(DBImagePath='MemeImgsDB.p', DBFormatPath='PathDB.p', S
             I_MemeFormat, ImagePaths, NormCorrVals = FindMemeFormat(Img, DBFormatPath, (256, 256, 3), progressBar=False)
             # Sort and display values
             ImagePaths_Sorted, NormCorrVals_Sorted = Utils.SortNormCorrVals(ImagePaths, NormCorrVals)
-            nCols = 5
+            
             DisplayTopMatches(Img, ImagePaths_Sorted, NormCorrVals_Sorted, nMatches=nMatches, nCols=nCols)
             savename = os.path.basename(os.path.splitext(imgp)[0]).replace('/', '--')
             plt.savefig(os.path.join(SavePath, savename) + '_Class' + '.png')
@@ -91,7 +91,8 @@ def DisplayTopMatches(Img, ImagePaths_Sorted, NormCorrVals_Sorted, nMatches=5, n
 
 
 # Driver Code
-
+"""
+# Classify Memes
 # Parameters
 DBImagePath = 'MemeImgsDB.p'
 DBFormatPath = 'PathDB.p'
@@ -101,6 +102,8 @@ nMatches = 5
 ClassifyMemes2Formats(DBImagePath, DBFormatPath, SavePath)
 quit()
 """
+"""
+# Get Meme Format
 # Parameters
 imgPath = 'MemeImages/Drake_Text_2.png'
 intermediate_imgPath = imgPath.replace('/', '--')

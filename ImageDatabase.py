@@ -60,11 +60,11 @@ def CleanDatabaseImages(DatabaseLocations=['MemeImages']):
 
 
 # Driver Code
-DatabaseLocations = ['MemeFormats']
-DBSaveFilePath = 'PathDB.p'
+# DatabaseLocations = ['MemeFormats']
+# DBSaveFilePath = 'PathDB.p'
 
-SaveDatabase(DatabaseLocations, DBSaveFilePath)
-print("Saved", len(ReadDatabase(DBSaveFilePath)), "Images")
+# SaveDatabase(DatabaseLocations, DBSaveFilePath)
+# print("Saved", len(ReadDatabase(DBSaveFilePath)), "Images")
 
 # SaveDatabase(['MemeImages'], 'MemeImgsDB.p')
 # print("Saved", len(ReadDatabase('MemeImgsDB.p')), "Images")
