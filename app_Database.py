@@ -16,6 +16,7 @@ MainLabelText_DB = None
 NFilesLabelText_DB = None
 FileLabels_DB = []
 DBFile_Text = None
+DBNameTextField = None
 
 DBFile_Path = ''
 
@@ -28,6 +29,7 @@ def CreateWindow():
     global curRow
     global MainLabelText_DB
     global NFilesLabelText_DB
+    global DBNameTextField
     global DBFile_Text
 
     Button(root, text="Select Dir", command=SelectFileDialogBox_DBDir).grid(row=curRow, column=0)
@@ -51,6 +53,11 @@ def CreateWindow():
     DBFile_Text.set("No Files Added")
     DBFile_Label = Label(root, textvariable=DBFile_Text)
     DBFile_Label.grid(row=curRow, column=0)
+    curRow += 1
+    DBNameLabel = Label(root, text="DB Name: ")
+    DBNameLabel.grid(row=curRow, column=0)
+    DBNameTextField = Entry(root)
+    DBNameTextField.grid(row=curRow, column=1)
     curRow += 1
 
 def SelectFileDialogBox_DBDir():
@@ -97,6 +104,7 @@ def SelectFileDialogBox_CreateDBFile():
     global curRow
     global DBFile_Path
     global DBFile_Text
+    global DBNameTextField
     global MainLabelText_DB
 
     # Create File Dialog Box
@@ -104,13 +112,13 @@ def SelectFileDialogBox_CreateDBFile():
 
     MainLabelText_DB.set("")
 
-    DBFile_Path = os.path.join(root.dirname, 'PathDB.p')
+    DBFile_Path = os.path.join(root.dirname, str(DBNameTextField.get()))
 
     open(DBFile_Path, 'wb')
 
     DBFile_Text.set('DB File: ' + DBFile_Path)
 
-    MainLabelText_DB.set("Created DBFile PathDB.p at " + root.dirname)    
+    MainLabelText_DB.set("Created DBFile " + str(DBNameTextField.get()) + " at " + root.dirname)    
 
 def Add2DB():
     global OpenedDirs
