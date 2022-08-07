@@ -18,6 +18,7 @@ def Dataset_LoadImage(path):
     try:
         # Load Image
         I = cv2.imread(path)
+        I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)
         I = np.array(I, dtype=float)
         # Convert range to [0, 1]
         I = I / 255.0

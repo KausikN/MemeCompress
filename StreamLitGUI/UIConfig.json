@@ -1,10 +1,10 @@
 {
-    "PROJECT_NAME": "{FEATUREDATA_PROJECT_NAME}",
-    "PROJECT_LINK": "https://github.com/KausikN/{FEATUREDATA_PROJECT_NAME}",
+    "PROJECT_NAME": "MemeCompress",
+    "PROJECT_LINK": "https://github.com/KausikN/MemeCompress",
 
-    "PROJECT_DESC": "{FEATUREDATA_PROJECT_DESC}",
+    "PROJECT_DESC": "Python app for detecting meme formats, compressing memes and other visualisations and analysis",
 
     "PROJECT_README": "README.md",
 
-    "PROJECT_MODES": ["Example Page"]
+    "PROJECT_MODES": ["Meme Analysis", "Meme Formats", "Meme Datasets"]
 }
