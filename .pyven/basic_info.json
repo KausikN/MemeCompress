@@ -1,0 +1,7 @@
+{
+    "repo_name": "MemeCompress",
+    "requirements": [
+        "streamlit",
+        "opencv-python-headless"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "PROJECT_NAME": "{FEATUREDATA_PROJECT_NAME}",
+    "PROJECT_LINK": "https://github.com/KausikN/{FEATUREDATA_PROJECT_NAME}",
+
+    "PROJECT_DESC": "{FEATUREDATA_PROJECT_DESC}",
+
+    "PROJECT_README": "README.md",
+
+    "PROJECT_MODES": ["Example Page"]
+}

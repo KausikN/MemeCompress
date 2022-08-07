@@ -1,0 +1,312 @@
+{
+    "name": "MemeCompress",
+    "repoLink": "https://github.com/KausikN/MemeCompress",
+    "localPath": "E:/Github Codes and Projects/Projects/MemeCompress",
+    "modules": {
+        "app.py": {
+            "name": "app",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/app.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "",
+            "dependencies": [
+                "os.py",
+                "streamlit.py",
+                "json.py"
+            ]
+        },
+        "MemeCompress.py": {
+            "name": "MemeCompress",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/MemeCompress.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "",
+            "dependencies": [
+                "*.py",
+                "DatasetUtils.py"
+            ]
+        },
+        "Data/Datasets/Data_7000/DatasetUtils.py": {
+            "name": "DatasetUtils",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Data/Datasets/Data_7000/DatasetUtils.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Data/Datasets/Data_7000",
+            "dependencies": [
+                "os.py",
+                "cv2.py",
+                "zipfile.py",
+                "functools.py",
+                "numpy.py",
+                "pandas.py",
+                "matplotlib/pyplot.py",
+                "Image.py",
+                "tqdm.py"
+            ]
+        },
+        "OldUI/app.py": {
+            "name": "app",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/OldUI/app.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "OldUI",
+            "dependencies": [
+                "OldUI/MemeCompress.py",
+                "OldUI/ImageDatabase.py",
+                "os.py",
+                "tkinter.py",
+                "json.py",
+                "cv2.py",
+                "*.py",
+                "ImageTk.py",
+                "Image.py",
+                "filedialog.py",
+                "tqdm.py"
+            ]
+        },
+        "OldUI/app_Database.py": {
+            "name": "app_Database",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/OldUI/app_Database.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "OldUI",
+            "dependencies": [
+                "OldUI/ImageDatabase.py",
+                "os.py",
+                "tkinter.py",
+                "*.py",
+                "ImageTk.py",
+                "Image.py",
+                "filedialog.py"
+            ]
+        },
+        "OldUI/ImageDatabase.py": {
+            "name": "ImageDatabase",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/OldUI/ImageDatabase.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "OldUI",
+            "dependencies": [
+                "pickle.py",
+                "os.py",
+                "tqdm.py"
+            ]
+        },
+        "OldUI/MemeCompress.py": {
+            "name": "MemeCompress",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/OldUI/MemeCompress.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "OldUI",
+            "dependencies": [
+                "cv2.py",
+                "matplotlib/pyplot.py",
+                "numpy.py",
+                "pickle.py",
+                "os.py",
+                "OldUI/Utils.py",
+                "tqdm.py"
+            ]
+        },
+        "OldUI/Utils.py": {
+            "name": "Utils",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/OldUI/Utils.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "OldUI",
+            "dependencies": [
+                "numpy.py",
+                "tqdm.py"
+            ]
+        },
+        "Utils/Dataset.py": {
+            "name": "Dataset",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/Dataset.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils",
+            "dependencies": [
+                "*.py",
+                "*.py"
+            ]
+        },
+        "Utils/DatasetUtils.py": {
+            "name": "DatasetUtils",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/DatasetUtils.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils",
+            "dependencies": [
+                "os.py",
+                "cv2.py",
+                "zipfile.py",
+                "functools.py",
+                "numpy.py",
+                "pandas.py",
+                "matplotlib/pyplot.py",
+                "Image.py",
+                "tqdm.py"
+            ]
+        },
+        "Utils/Utils.py": {
+            "name": "Utils",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/Utils.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils",
+            "dependencies": [
+                "os.py",
+                "cv2.py",
+                "pickle.py",
+                "numpy.py",
+                "matplotlib/pyplot.py",
+                "ceil.py",
+                "tqdm.py"
+            ]
+        },
+        "tqdm.py": {
+            "name": "tqdm",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "tkinter.py": {
+            "name": "tkinter",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "Image.py": {
+            "name": "Image",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "functools.py": {
+            "name": "functools",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "pandas.py": {
+            "name": "pandas",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "ImageTk.py": {
+            "name": "ImageTk",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "cv2.py": {
+            "name": "cv2",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "numpy.py": {
+            "name": "numpy",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "pickle.py": {
+            "name": "pickle",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "DatasetUtils.py": {
+            "name": "DatasetUtils",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "ceil.py": {
+            "name": "ceil",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "*.py": {
+            "name": "*",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "json.py": {
+            "name": "json",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "streamlit.py": {
+            "name": "streamlit",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "matplotlib/pyplot.py": {
+            "name": "pyplot",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "matplotlib",
+            "dependencies": []
+        },
+        "zipfile.py": {
+            "name": "zipfile",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "os.py": {
+            "name": "os",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "filedialog.py": {
+            "name": "filedialog",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        }
+    }
+}
