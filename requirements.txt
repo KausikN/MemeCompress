@@ -1,2 +1,8 @@
 streamlit
-opencv-python-headless
+opencv_python_headless
+scipy
+Pillow
+tqdm
+matplotlib
+numpy
+pandas
