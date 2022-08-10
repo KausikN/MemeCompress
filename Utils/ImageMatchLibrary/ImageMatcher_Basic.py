@@ -72,7 +72,8 @@ IMAGEMATCH_FUNCS = {
     "Pixel-wise Average Difference": {
         "func": ImageMatch_Score_PixelWiseAvgDifference,
         "params": {
-            "resizeFunc": "simple"
+            "resizeFunc": "simple",
+            "to_grayscale": True
         }
     }
 }
