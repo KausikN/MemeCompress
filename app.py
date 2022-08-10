@@ -158,14 +158,14 @@ def UI_SelectFormatMatchFunc():
     '''
     cols = st.columns((1, 3))
     # Load Func
-    USERINPUT_FormatMatchFunc = cols[0].selectbox("Select Format Match Function", list(MATCHSCORE_FUNCS.keys()))
+    USERINPUT_FormatMatchFunc = cols[0].selectbox("Select Format Match Function", list(IMAGEMATCH_FUNCS.keys()))
     # Load Params
-    USERINPUT_FormatMatchFuncParams = MATCHSCORE_FUNCS[USERINPUT_FormatMatchFunc]["params"]
+    USERINPUT_FormatMatchFuncParams = IMAGEMATCH_FUNCS[USERINPUT_FormatMatchFunc]["params"]
     USERINPUT_FormatMatchFuncParams_str = cols[1].text_area("Format Match Function Params", value=json.dumps(USERINPUT_FormatMatchFuncParams, indent=4))
     USERINPUT_FormatMatchFuncParams = json.loads(USERINPUT_FormatMatchFuncParams_str)
 
     USERINPUT_FormatMatchFunc = {
-        "func": MATCHSCORE_FUNCS[USERINPUT_FormatMatchFunc]["func"],
+        "func": IMAGEMATCH_FUNCS[USERINPUT_FormatMatchFunc]["func"],
         "params": USERINPUT_FormatMatchFuncParams
     }
     return USERINPUT_FormatMatchFunc

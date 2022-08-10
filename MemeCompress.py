@@ -16,7 +16,7 @@ DATASETS = {
 # Main Functions
 def MemeCompress_ImagesSimilarity(
     I_query, I_ref, 
-    MatchScoreFunc=MATCHSCORE_FUNCS["Pixel-wise Average Difference"], 
+    MatchScoreFunc=IMAGEMATCH_FUNCS["Pixel-wise Average Difference"], 
     visualise=False,
     **params
     ):
@@ -31,7 +31,7 @@ def MemeCompress_ImagesSimilarity(
 
 def MemeCompress_ClassifyMemeFormat(
     I, format_paths, 
-    MatchScoreFunc=MATCHSCORE_FUNCS["Pixel-wise Average Difference"], FormatMaxSize=4096, 
+    MatchScoreFunc=IMAGEMATCH_FUNCS["Pixel-wise Average Difference"], FormatMaxSize=4096, 
     progressObj=tqdm, 
     **params
     ):

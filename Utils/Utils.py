@@ -26,6 +26,15 @@ def NormaliseToRange(I, val_range=(0, 255)):
 
     return I
 
+# Histogram Functions
+def Image_Histogram(I, bins=256):
+    '''
+    Image - Get image histogram
+    '''
+    hist = np.histogram(I, bins=bins)
+
+    return hist
+
 # Resize Functions
 def Resize_MaxSizeARPreserved(I, maxSize=4096, always_resize=False):
     '''
