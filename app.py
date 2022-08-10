@@ -46,6 +46,9 @@ PATHS = {
     "meme_formats": "Data/MemeFormats/",
     "examples": "Data/TestImgs/"
 }
+EXTS = {
+    "image": [".jpg", ".png", ".jpeg", ".bmp"],
+}
 
 # Util Vars
 CACHE = {}
@@ -79,7 +82,12 @@ def UI_LoadFormats():
     global PATHS
 
     PATHS["meme_formats"] = st.sidebar.text_input("Meme Formats Dir", value="Data/MemeFormats/")
-    format_paths = [os.path.join(PATHS["meme_formats"], f) for f in os.listdir(PATHS["meme_formats"])]
+    format_paths = []
+    for root, dirs, files in os.walk(PATHS["meme_formats"]):
+        for file in files:
+            ext = os.path.splitext(file)[1]
+            if ext in EXTS["image"]:
+                format_paths.append(os.path.join(root, file))
     st.sidebar.markdown(f"Found {len(format_paths)} Meme Formats")
     
     return format_paths
@@ -131,7 +139,7 @@ def UI_LoadMeme():
         st.image(I_meme, caption=f"Image: {I_meme.shape}", use_column_width=True)
     elif USERINPUT_LoadType == "Upload":
         USERINPUT_ImagePath = os.path.join(PATHS["temp"], "UploadedMeme.png")
-        I_meme_data = st.file_uploader("Upload Image", type=["jpg", "png", "PNG", "jpeg", "bmp"])
+        I_meme_data = st.file_uploader("Upload Image", type=EXTS)
         if I_meme_data is None: USERINPUT_ImagePath = os.path.join(PATHS["examples"], os.listdir(PATHS["examples"])[0])
         else: open(USERINPUT_ImagePath, "wb").write(I_meme_data)
         I_meme = Dataset_LoadImage(USERINPUT_ImagePath)
@@ -162,6 +170,35 @@ def UI_SelectFormatMatchFunc():
     }
     return USERINPUT_FormatMatchFunc
 
+@st.cache
+def UI_ClassifyMemeFormat(I_meme, FORMAT_PATHS, USERINPUT_FormatMatchFunc, USERINPUT_FormatMaxSize):
+    '''
+    Classify Meme Format
+    '''
+    ScoresData = MemeCompress_ClassifyMemeFormat(
+        I_meme, FORMAT_PATHS, USERINPUT_FormatMatchFunc, 
+        USERINPUT_FormatMaxSize, 
+        # progressObj=ProgressObj_Streamlit
+    )
+
+    return ScoresData
+
+# @st.cache
+def UI_FormatSimilarity(I_meme, FORMAT_PATH, USERINPUT_FormatMatchFunc, USERINPUT_FormatMaxSize):
+    '''
+    Get Format Similarity
+    '''
+    # Load and Resize Ref Image
+    I_format = Dataset_LoadImage(FORMAT_PATH)
+    I_format = Resize_MaxSizeARPreserved(I_format, USERINPUT_FormatMaxSize, always_resize=False)
+    # Get Similarity
+    ScoresData = MemeCompress_ImagesSimilarity(
+        I_meme, I_format, USERINPUT_FormatMatchFunc, 
+        visualise=True
+    )
+
+    return ScoresData
+
 # Repo Based Functions
 def meme_analysis():
     # Title
@@ -171,30 +208,48 @@ def meme_analysis():
 
     # Load Inputs
     FORMAT_PATHS = UI_LoadFormats()
+    USERINPUT_FormatMaxSize = st.sidebar.number_input("Format Max Size", 1, 4096, 256, 1)
     I_meme = UI_LoadMeme()
     USERINPUT_FormatMatchFunc = UI_SelectFormatMatchFunc()
 
     # Process Inputs
-    ScoresData = MemeCompress_ClassifyMemeFormat(
-        I_meme, FORMAT_PATHS, USERINPUT_FormatMatchFunc, 
-        progressObj=ProgressObj_Streamlit
-    )
-    # Display Outputs
-    st.markdown("## Meme Format Match Scores")
+    ScoresData = UI_ClassifyMemeFormat(I_meme, FORMAT_PATHS, USERINPUT_FormatMatchFunc, USERINPUT_FormatMaxSize)
+    # Select Format
+    st.markdown("## Format Scores")
     N = ScoresData["scores"].shape[0]
     USERINPUT_ViewScoreIndex = st.slider(f"View Matched Format ({N} Matches)", 0, N-1, 0, 1)
+    CurrentFormatPath = ScoresData["paths"][USERINPUT_ViewScoreIndex]
+    CurrentFormatData = UI_FormatSimilarity(I_meme, CurrentFormatPath, USERINPUT_FormatMatchFunc, USERINPUT_FormatMaxSize)
+    # Display Outputs
     cols = st.columns((1, 4))
     cols[0].markdown(f"Meme {USERINPUT_ViewScoreIndex}")
-    cols[1].markdown(f"```\n{ScoresData['paths'][USERINPUT_ViewScoreIndex]}\n```")
+    cols[1].markdown(f"```\n{CurrentFormatPath}\n```")
     cols = st.columns((1, 4))
     cols[0].markdown("Score")
-    cols[1].markdown(f"```\n{ScoresData['scores'][USERINPUT_ViewScoreIndex]}\n```")
-    I = np.array(cv2.imread(ScoresData["paths"][USERINPUT_ViewScoreIndex]), dtype=np.uint8)
+    cols[1].markdown(f"```\n{CurrentFormatData['score']}\n```")
+    I = np.array(cv2.imread(CurrentFormatPath), dtype=np.uint8)
     st.image(
-        ScoresData["paths"][USERINPUT_ViewScoreIndex], 
+        CurrentFormatPath, 
         caption=f"Format: {USERINPUT_ViewScoreIndex} {I.shape}", 
         use_column_width=True
     )
+    st.markdown("## Similarity Visualisation")
+    st.markdown("### Plots (Graphs)")
+    for k in CurrentFormatData["plots_plotly"].keys():
+        st.markdown(f"#### {k}")
+        n_plots = len(CurrentFormatData["plots_plotly"][k])
+        cols = st.columns(n_plots)
+        for pi in range(n_plots):
+            cols[pi].plotly_chart(CurrentFormatData["plots_plotly"][k][pi])
+    st.markdown("### Plots (Image)")
+    for k in CurrentFormatData["plots_pyplot"]:
+        st.markdown(f"#### {k}")
+        n_plots = len(CurrentFormatData["plots_pyplot"][k])
+        cols = st.columns(n_plots)
+        for pi in range(n_plots):
+            cols[pi].pyplot(CurrentFormatData["plots_pyplot"][k][pi])
+    st.markdown("### Data")
+    st.write(CurrentFormatData["data"])
 
 def meme_formats():
     global PATHS
@@ -205,6 +260,7 @@ def meme_formats():
 
     # Load Inputs
     FORMAT_PATHS = UI_LoadFormats()
+    # USERINPUT_FormatMaxSize = st.sidebar.number_input("Format Max Size", 1, 4096, 256, 1)
     DATASET = pd.DataFrame({"path": FORMAT_PATHS})
     USERINPUT_SampleIndex = UI_SelectDatasetSample(DATASET)
 

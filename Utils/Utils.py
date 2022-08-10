@@ -27,6 +27,27 @@ def NormaliseToRange(I, val_range=(0, 255)):
     return I
 
 # Resize Functions
+def Resize_MaxSizeARPreserved(I, maxSize=4096, always_resize=False):
+    '''
+    Resize - Special - Resize image to max size preserving aspect ratio
+    If image already smaller than max size, no change if always_resize is False else resize to max size
+    '''
+    # Check max size
+    if (max(I.shape[0], I.shape[1]) <= maxSize) and (not always_resize):
+        return I
+    # Resize (preserving original aspect ratio)
+    aspect_ratio_I = I.shape[1] / I.shape[0]
+    size_ar = [0, 0]
+    if aspect_ratio_I > 1:
+        size_ar[1] = maxSize
+        size_ar[0] = ceil(maxSize / aspect_ratio_I)
+    else:
+        size_ar[0] = maxSize
+        size_ar[1] = ceil(maxSize * aspect_ratio_I)
+    I_resized = cv2.resize(I, tuple(size_ar)[::-1])
+
+    return I_resized
+
 def Resize_Simple(I, size):
     '''
     Resize - Simple CV2 Resizing
