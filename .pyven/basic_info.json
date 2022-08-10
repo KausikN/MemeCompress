@@ -2,12 +2,12 @@
     "repo_name": "MemeCompress",
     "requirements": [
         "streamlit",
-        "opencv-python-headless",
-        "Pillow",
+        "opencv_python_headless",
         "scipy",
+        "Pillow",
         "tqdm",
         "matplotlib",
         "numpy",
-        "pandas"   
+        "pandas"
     ]
 }

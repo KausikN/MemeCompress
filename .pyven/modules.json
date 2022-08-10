@@ -12,7 +12,8 @@
             "dependencies": [
                 "os.py",
                 "streamlit.py",
-                "json.py"
+                "json.py",
+                "*.py"
             ]
         },
         "MemeCompress.py": {
@@ -22,6 +23,7 @@
             "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
             "subDir": "",
             "dependencies": [
+                "*.py",
                 "*.py",
                 "DatasetUtils.py"
             ]
@@ -148,6 +150,19 @@
                 "tqdm.py"
             ]
         },
+        "Utils/ImageMatchFunctions.py": {
+            "name": "ImageMatchFunctions",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/ImageMatchFunctions.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils",
+            "dependencies": [
+                "*.py",
+                "ImageMatcher_Basic.py",
+                "ImageMatcher_Correlation.py",
+                "ImageMatcher_Histogram.py"
+            ]
+        },
         "Utils/Utils.py": {
             "name": "Utils",
             "type": "local",
@@ -164,72 +179,39 @@
                 "tqdm.py"
             ]
         },
-        "tqdm.py": {
-            "name": "tqdm",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
+        "Utils/ImageMatchLibrary/ImageMatcher_Basic.py": {
+            "name": "ImageMatcher_Basic",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/ImageMatchLibrary/ImageMatcher_Basic.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils/ImageMatchLibrary",
+            "dependencies": [
+                "*.py"
+            ]
         },
-        "tkinter.py": {
-            "name": "tkinter",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
+        "Utils/ImageMatchLibrary/ImageMatcher_Correlation.py": {
+            "name": "ImageMatcher_Correlation",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/ImageMatchLibrary/ImageMatcher_Correlation.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils/ImageMatchLibrary",
+            "dependencies": [
+                "correlate2d.py",
+                "*.py"
+            ]
         },
-        "Image.py": {
-            "name": "Image",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
+        "Utils/ImageMatchLibrary/ImageMatcher_Histogram.py": {
+            "name": "ImageMatcher_Histogram",
+            "type": "local",
+            "link": "https://github.com/KausikN/MemeCompress/blob/master/Utils/ImageMatchLibrary/ImageMatcher_Histogram.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/MemeCompress",
+            "subDir": "Utils/ImageMatchLibrary",
+            "dependencies": [
+                "*.py"
+            ]
         },
-        "functools.py": {
-            "name": "functools",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
-        },
-        "pandas.py": {
-            "name": "pandas",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
-        },
-        "ImageTk.py": {
-            "name": "ImageTk",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
-        },
-        "cv2.py": {
-            "name": "cv2",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
-        },
-        "numpy.py": {
-            "name": "numpy",
-            "type": "missing",
-            "link": "",
-            "parentDir": "",
-            "subDir": "",
-            "dependencies": []
-        },
-        "pickle.py": {
-            "name": "pickle",
+        "ImageMatcher_Basic.py": {
+            "name": "ImageMatcher_Basic",
             "type": "missing",
             "link": "",
             "parentDir": "",
@@ -244,8 +226,8 @@
             "subDir": "",
             "dependencies": []
         },
-        "ceil.py": {
-            "name": "ceil",
+        "cv2.py": {
+            "name": "cv2",
             "type": "missing",
             "link": "",
             "parentDir": "",
@@ -284,8 +266,88 @@
             "subDir": "matplotlib",
             "dependencies": []
         },
+        "numpy.py": {
+            "name": "numpy",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "pandas.py": {
+            "name": "pandas",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "tkinter.py": {
+            "name": "tkinter",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
         "zipfile.py": {
             "name": "zipfile",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "ImageMatcher_Correlation.py": {
+            "name": "ImageMatcher_Correlation",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "functools.py": {
+            "name": "functools",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "ImageTk.py": {
+            "name": "ImageTk",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "ImageMatcher_Histogram.py": {
+            "name": "ImageMatcher_Histogram",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "correlate2d.py": {
+            "name": "correlate2d",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "Image.py": {
+            "name": "Image",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "tqdm.py": {
+            "name": "tqdm",
             "type": "missing",
             "link": "",
             "parentDir": "",
@@ -300,8 +362,24 @@
             "subDir": "",
             "dependencies": []
         },
+        "ceil.py": {
+            "name": "ceil",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
         "filedialog.py": {
             "name": "filedialog",
+            "type": "missing",
+            "link": "",
+            "parentDir": "",
+            "subDir": "",
+            "dependencies": []
+        },
+        "pickle.py": {
+            "name": "pickle",
             "type": "missing",
             "link": "",
             "parentDir": "",

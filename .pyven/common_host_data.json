@@ -1,3 +1,9 @@
 {
-    "files_to_download": []
+    "files_to_download": [
+        "StreamLitGUI/",
+        "app.py",
+        "MemeCompress.py",
+        "Data/",
+        "Utils/"
+    ]
 }
